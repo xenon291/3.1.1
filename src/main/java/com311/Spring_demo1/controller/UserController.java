@@ -57,6 +57,7 @@ public class UserController {
             return "redirect:/users";
         }
     }
+
     @PostMapping("/edit")
     public String updateUser(@ModelAttribute("user") @Validated User user,
                              BindingResult bindingResult) {
@@ -66,6 +67,7 @@ public class UserController {
         userService.update(user);
         return "redirect:/users";
     }
+
     @GetMapping("/delete")
     public String showDeleteUser(@RequestParam("id") int id, Model model) {
         User userById = userService.getUserById(id);
